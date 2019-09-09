@@ -1,0 +1,10 @@
+{
+	"package": "nessiesson.tapemouse.ClientCommands.mixins",
+	"refmap": "mixins.tapemouse.refmap.json",
+	"minVersion": "0.7.3",
+	"mixins": [
+		"IKeybinding",
+		"MixinGuiScreen",
+		"MixinTabCompleter"
+	]
+}

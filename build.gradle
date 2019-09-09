@@ -1,0 +1,50 @@
+buildscript {
+	repositories {
+		jcenter()
+		maven { url = "https://files.minecraftforge.net/maven" }
+		maven { url = "https://repo.spongepowered.org/maven" }
+	}
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+		classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
+	}
+}
+
+apply plugin: "net.minecraftforge.gradle.liteloader"
+apply plugin: "org.spongepowered.mixin"
+
+minecraft {
+	version = project.mcVersion
+	mappings = project.mcMappings
+	runDir = "run"
+	makeObfSourceJar = false
+
+	replace "@VERSION@", project.version
+	replace "@NAME@", project.name
+}
+
+mixin {
+	defaultObfuscationEnv notch
+	add sourceSets.main, "mixins.tapemouse.refmap.json"
+}
+
+litemod {
+	json {
+		author = "nessie"
+		name = project.name
+		mcversion = project.mcVersion
+		description = "TapeMouse."
+		mixinConfigs += "mixins.tapemouse.json"
+		mixinConfigs += "mixins.clientcommands.json"
+	}
+}
+
+jar {
+	classifier = ""
+	baseName = "$project.name-$project.mcVersion"
+	from litemod.outputs
+}
+
+runClient {
+	jvmArgs "-Dmixin.debug=true"
+}
