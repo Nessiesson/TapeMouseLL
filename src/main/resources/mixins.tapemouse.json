@@ -2,6 +2,7 @@
 	"package": "nessiesson.tapemouse.mixins",
 	"refmap": "mixins.tapemouse.refmap.json",
 	"minVersion": "0.7.3",
+	"compatibilityLevel": "JAVA_8",
 	"mixins": [
 		"MixinMinecraft"
 	]
