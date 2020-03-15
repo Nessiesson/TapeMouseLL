@@ -10,6 +10,6 @@ import java.util.Map;
 public interface IKeybinding {
 	@Accessor("KEYBIND_ARRAY")
 	static Map<String, KeyBinding> getKeyBindArray() {
-		return null;
+		throw new UnsupportedClassVersionError("Requires Java 8");
 	}
 }

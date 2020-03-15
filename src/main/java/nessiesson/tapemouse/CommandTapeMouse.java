@@ -25,7 +25,7 @@ import static org.lwjgl.input.Keyboard.KEY_NONE;
  */
 public class CommandTapeMouse extends CommandBase {
 	private static final Map<String, KeyBinding> KEYBIND_ARRAY = IKeybinding.getKeyBindArray();
-	private boolean prevPauseSetting = true; // defaults to true
+	private boolean prevPauseSetting = true;
 
 	@Override
 	public String getName() {
